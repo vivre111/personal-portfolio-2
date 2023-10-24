@@ -1,0 +1,1 @@
+export const homeContent = 'welcome text and intro'

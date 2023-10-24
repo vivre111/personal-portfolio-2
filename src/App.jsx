@@ -1,27 +1,30 @@
-import React from 'react'
-import Experties from './components/Experties/Experties'
-import Footer from './components/Footer/Footer'
-import Header from './components/Header/Header'
-import Hero from './components/Hero/Hero'
-import People from './components/People/People'
-import Portfolio from './components/Portfolio/Portfolio'
-import Work from './components/Work/Work'
-import css from './styles/App.module.scss'
-import Opportunities from './components/Opportunities/Opportunities'
-const App = () => {
-  //don't forget to add font link in index.html
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Homepage from "./pages/Home"
+import Navbar from './components/Navbar';
+import Research from './pages/Research';
+import LabMembers from './pages/LabMembers';
+import Publications from './pages/Publications';
+import News from './pages/News';
+import Opportunities from './pages/Opportunities';
+import Links from './pages/Links';
+import Funding from './pages/Funding';
+function App() {
   return (
-    <div className={`bg-primary ${css.container}`}>
-      <Header />
-      <Hero />
-      <Work />
-      <People />
-      <Opportunities></Opportunities>
-      <Experties />
-      <Portfolio />
-      <Footer />
-    </div>
-  )
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Homepage></Homepage>} />
+        <Route path='/Research' element={<Research></Research>} />
+        <Route path='/LabMembers' element={<LabMembers/>} />
+        <Route path='/Publications' element={<Publications/>} />
+        <Route path='/News' element={<News/>} />
+        <Route path='/Opportunities' element={<Opportunities/>} />
+        <Route path='/Links' element={<Links/>} />
+        <Route path='/Funding' element={<Funding/>} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
